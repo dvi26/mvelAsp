@@ -1,0 +1,49 @@
+﻿@using ENT
+@using (Html.BeginForm("EnviarPuntuacion", "Combate", FormMethod.Post))
+
+@model IEnumerable<clsPersonaje>
+
+@{
+    ViewData["Title"] = "puntuarCombate";
+}
+
+<div>
+<label>Personaje 1:</label>
+<select name="idPersonaje1">
+    @foreach (var personaje in Model)
+    {
+        <option value="@personaje.Id">@personaje.Nombre</option>
+    }
+</select>
+    <br />
+    <label>Puntuacion:</label>
+    <select name="puntuacion1">
+        @for (int i = 0; i <= 5; i++)
+        {
+            <option value="@i">@i</option>
+        }
+    </select>
+</div>
+
+<div>
+<label>Puntuacion:</label>
+<select name="idPersonaje2">
+    @foreach (var personaje in Model)
+    {
+        <option value="@personaje.Id">@personaje.Nombre</option>
+    }
+</select>
+<br />
+    <label>Personaje 1:</label>
+    <select name="puntuacion2">
+        @for (int i = 0; i <= 5; i++)
+        {
+            <option value="@i">@i</option>
+        }
+    </select>
+</div>
+<button type="submit">Enviar puntuación</button>
+
+
+
+
