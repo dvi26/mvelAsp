@@ -47,7 +47,7 @@ namespace DAL
 
             return listadoPersonajes;
         }
-        public static bool insertarCombate(int idPersonaje1, int idPersonaje2, int puntuacion1, int puntuacion2)
+        public static bool insertarCombate(clsCombate combateNuevo)
         {
             SqlConnection miConexion;
             SqlCommand miComando = new SqlCommand();
@@ -56,12 +56,15 @@ namespace DAL
             {
                 miConexion = clsConexion.getConexion(); 
                 miComando.CommandText = "INSERT INTO Combate (IdPersonaje1, IdPersonaje2, Puntuacion, FechaCombate) " +
-                                        "VALUES (@idPersonaje1, @idPersonaje2, @puntuacion, GETDATE())";
+                                        "VALUES (@idPersonaje1, @idPersonaje2, @puntuacion, @fechaCombate)";
                 miComando.Connection = miConexion;
+                miComando.Parameters.AddWithValue("@idPersonaje1", combateNuevo.IdPersonaje1);
+                miComando.Parameters.AddWithValue("@idPersonaje2", combateNuevo.IdPersonaje2);
+                miComando.Parameters.AddWithValue("@puntacion1", combateNuevo.Puntuacion1);
+                miComando.Parameters.AddWithValue("@puntacion2", combateNuevo.Puntuacion2);
+                miComando.Parameters.AddWithValue("@fechaCombate", combateNuevo.FechaCombate);
 
-                miComando.Parameters.AddWithValue("@idPersonaje1", idPersonaje1);
-                miComando.Parameters.AddWithValue("@idPersonaje2", idPersonaje2);
-                miComando.Parameters.AddWithValue("@puntuacion", puntuacion1 + puntuacion2); 
+
 
                 int filasAfectadas = miComando.ExecuteNonQuery();
                 if (filasAfectadas > 0)

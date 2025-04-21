@@ -1,6 +1,7 @@
 ﻿using DAL;
 using ENT;
 using Microsoft.AspNetCore.Mvc;
+using mvelAsp.Models;
 
 namespace mvelAsp.Controllers
 {
@@ -8,22 +9,28 @@ namespace mvelAsp.Controllers
     {
         public ActionResult puntuarCombate()
         {
-            List<clsPersonaje> listadoPersonajes = clsDalBDD.ObtenerPersonajes();
-            return View(listadoPersonajes);
+            listadoPersonajeConCombate personajeConCombate = new listadoPersonajeConCombate();
+            return View(personajeConCombate);
         }
 
-
-        public ActionResult enviarPuntuacion(int idPersonaje1, int idPersonaje2, int puntuacion1, int puntuacion2)
+        [HttpPost]
+        public ActionResult puntuarCombate(clsCombate combateActual)
         {
-            if (clsDalBDD.insertarCombate(idPersonaje1, idPersonaje2, puntuacion1, puntuacion2))
+            combateActual.FechaCombate = DateTime.Now;
+            if (clsDalBDD.insertarCombate(combateActual))
             {
-                return RedirectToAction("Home/Index");
+                //return RedirectToAction("Home/Index");
             }
             else
             {
                 return RedirectToAction("Shared/Error");
             }
+
+            listadoPersonajeConCombate personajeConCombate = new listadoPersonajeConCombate(combateActual.IdCombate,combateActual.FechaCombate,combateActual.IdPersonaje1,combateActual.IdPersonaje2,combateActual.Puntuacion1,combateActual.Puntuacion2);
+            return View(personajeConCombate);
+
         }
+        
 
     }
 }
