@@ -27,6 +27,10 @@ namespace ENT
             this.id = id;
             this.nombre = nombre;
         }
+        public clsPersonaje()
+        {
+
+        }
 
     }
 }

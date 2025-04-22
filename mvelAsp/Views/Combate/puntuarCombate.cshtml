@@ -1,45 +1,59 @@
 ﻿@using ENT
-
 @model listadoPersonajeConCombate
 
+<h2>Puntuar Combate</h2>
+
+@if (ViewBag.Exito != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Exito
+    </div>
+}
+@if (ViewBag.Error != null)
+{
+<div class="alert alert-danger">
+    @ViewBag.Error
+</div>
+}
 
 <form method="post" asp-action="puntuarCombate">
-<div>
-<label>Personaje 1:</label>
-<select name="idPersonaje1">
-    @foreach (var personaje in Model.ListaPersonaje)
-    {
-        <option value="@personaje.Id">@personaje.Nombre</option>
-    }
-</select>
-    <br />
-    <label>Puntuacion:</label>
-    <select name="puntuacion1">
-        @for (int i = 0; i <= 5; i++)
-        {
-            <option value="@i">@i</option>
-        }
-    </select>
-</div>
+    <div>
+        <label>Personaje 1:</label>
+        <select name="idPersonaje1">
+            @foreach (var personaje in Model.ListaPersonaje)
+            {
+                <option value="@personaje.Id">@personaje.Nombre</option>
+            }
+        </select>
+        <br />
 
-<div>
-<label>Puntuacion:</label>
-<select name="idPersonaje2">
-        @foreach (var personaje in Model.ListaPersonaje)
-    {
-        <option value="@personaje.Id">@personaje.Nombre</option>
-    }
-</select>
-<br />
-    <label>Personaje 1:</label>
-    <select name="puntuacion2">
-        @for (int i = 0; i <= 5; i++)
-        {
-            <option value="@i">@i</option>
-        }
-    </select>
-</div>
-<button type="submit">Enviar puntuación</button>
+        <label>Puntuación Personaje 1:</label>
+        <select name="puntuacion1">
+            @for (int i = 0; i <= 5; i++)
+            {
+                <option value="@i">@i</option>
+            }
+        </select>
+    </div>
+
+    <div>
+        <label>Personaje 2:</label>
+        <select name="idPersonaje2">
+            @foreach (var personaje in Model.ListaPersonaje)
+            {
+                <option value="@personaje.Id">@personaje.Nombre</option>
+            }
+        </select>
+        <br />
+
+        <label>Puntuación Personaje 2:</label>
+        <select name="puntuacion2">
+            @for (int i = 0; i <= 5; i++)
+            {
+                <option value="@i">@i</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit">Enviar puntuación</button>
 </form>
-
-

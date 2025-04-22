@@ -1,0 +1,21 @@
+﻿@model List<mvelAsp.Models.clsPersonajeConPuntuacion>
+
+<h2>Tabla de Clasificación</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre del Personaje</th>
+            <th>Total Puntuaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var personaje in Model)
+        {
+            <tr>
+                <td>@personaje.Nombre</td>
+                <td>@personaje.TotalPuntuaciones</td>
+            </tr>
+        }
+    </tbody>
+</table>
