@@ -48,7 +48,7 @@ namespace mvelAsp.Controllers
         [HttpPost]
         public ActionResult puntuarCombate(clsCombate combateActual)
         {
-            combateActual.FechaCombate = DateTime.Now;
+            combateActual.FechaCombate = DateTime.UtcNow.Date;
             listadoPersonajeConCombate personajeConCombate = new listadoPersonajeConCombate(combateActual.IdCombate, combateActual.FechaCombate, combateActual.IdPersonaje1, combateActual.IdPersonaje2, combateActual.Puntuacion1, combateActual.Puntuacion2);
             try
             {

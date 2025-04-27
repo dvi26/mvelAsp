@@ -46,7 +46,17 @@ namespace ENT
             set { puntuacion2 = value; }
         }
         
-        public clsCombate(int idCombate, DateTime fechaCombate, int idPersonaje1, int idPersonaje2, int puntuacion1,int puntuacion2)
+        public clsCombate( DateTime fechaCombate, int idPersonaje1, int idPersonaje2, int puntuacion1,int puntuacion2)
+        {
+            //this.idCombate = idCombate;
+            this.fechaCombate = fechaCombate;
+            this.idPersonaje1 = idPersonaje1;
+            this.idPersonaje2 = idPersonaje2;
+            this.puntuacion1 = puntuacion1;
+            this.puntuacion2 = puntuacion2;
+
+        }
+        public clsCombate(int idCombate,DateTime fechaCombate, int idPersonaje1, int idPersonaje2, int puntuacion1, int puntuacion2)
         {
             this.idCombate = idCombate;
             this.fechaCombate = fechaCombate;

@@ -118,7 +118,8 @@ namespace DAL
             miComando.Parameters.AddWithValue("@idPersonaje2", combateNuevo.IdPersonaje2);
             miComando.Parameters.AddWithValue("@puntuacion1", combateNuevo.Puntuacion1);
             miComando.Parameters.AddWithValue("@puntuacion2", combateNuevo.Puntuacion2);
-            miComando.Parameters.Add("@fechaCombate", SqlDbType.DateTime).Value = combateNuevo.FechaCombate.Day;
+            miComando.Parameters.AddWithValue("@fechaCombate", combateNuevo.FechaCombate.Date);
+
 
             try
             {
@@ -129,7 +130,7 @@ IF NOT EXISTS (
     WHERE 
         ((IdPersonaje1 = @idPersonaje1 AND IdPersonaje2 = @idPersonaje2) OR 
          (IdPersonaje1 = @idPersonaje2 AND IdPersonaje2 = @idPersonaje1)) 
-       AND DAY(FechaCombate) = @fechaCombate
+       AND FechaCombate = @fechaCombate
 )
 BEGIN
     INSERT INTO Combate (IdPersonaje1, IdPersonaje2, Puntuacion1, Puntuacion2, FechaCombate)

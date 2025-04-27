@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mvelMaui.Views.verClasificacion"
+             Title="verClasificacion"
+             xmlns:local="clr-namespace:mvelMaui.Models">
+
+    <ContentPage.BindingContext>
+        <local:clsViewModelTablaClasificacion />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="10">
+        <Label Text="Tabla de Clasificación" FontSize="30" HorizontalOptions="Center" Margin="0,30"/>
+
+        <ListView ItemsSource="{Binding TablaClasificacion}"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="Default"
+                  IsPullToRefreshEnabled="True" 
+                  RowHeight="80">
+
+            <ListView.Header>
+                <StackLayout Orientation="Horizontal" Padding="10">
+                    <Label Text="Id" FontAttributes="Bold" WidthRequest="100" FontSize="18"/>
+                    <Label Text="Nombre" FontAttributes="Bold" WidthRequest="250" FontSize="18"/>
+                    <Label Text="Puntuación Total" FontAttributes="Bold" WidthRequest="200" FontSize="18"/>
+                    <Label Text="Foto" FontAttributes="Bold" WidthRequest="200" FontSize="18"/>
+                </StackLayout>
+            </ListView.Header>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Label Text="{Binding Id}" HorizontalOptions="Center" WidthRequest="100" FontSize="16" />
+                            <Label Text="{Binding Nombre}" WidthRequest="250" FontSize="16"/>
+                            <Label Text="{Binding Puntuacion}" HorizontalOptions="Center" WidthRequest="200" FontSize="16"/>
+                            <Image Source="{Binding Foto}" WidthRequest="80" HeightRequest="80" HorizontalOptions="Center" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
