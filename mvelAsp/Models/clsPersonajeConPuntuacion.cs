@@ -3,7 +3,7 @@ using ENT;
 
 namespace mvelAsp.Models
 {
-    public class clsPersonajeConPuntuacion: clsPersonaje
+    public class clsPersonajeConPuntuacion : clsPersonaje
     {
         private int totalPuntuaciones;
         private List<clsCombate> listaCombates;
@@ -13,7 +13,7 @@ namespace mvelAsp.Models
             get { return totalPuntuaciones; }
             set { totalPuntuaciones = value; }
         }
-       
+
         public int ListaCombates
         {
             get { return totalPuntuaciones; }

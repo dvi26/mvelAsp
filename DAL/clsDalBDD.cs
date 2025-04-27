@@ -26,7 +26,7 @@ namespace DAL
             try
             {
                 miConexion = clsConexion.getConexion();
-                miComando.CommandText = "SELECT * FROM Personaje";
+                miComando.CommandText = "SELECT Id, Nombre, Foto FROM Personaje";  
                 miComando.Connection = miConexion;
                 miLector = miComando.ExecuteReader();
 
@@ -36,8 +36,9 @@ namespace DAL
                     {
                         int id = (int)miLector["Id"];
                         string nombre = miLector["Nombre"] != DBNull.Value ? (string)miLector["Nombre"] : "";
+                        string foto = miLector["Foto"] != DBNull.Value ? (string)miLector["Foto"] : "";  
 
-                        oPersonaje = new clsPersonaje(id, nombre);
+                        oPersonaje = new clsPersonaje(id, nombre, foto);  
                         listadoPersonajes.Add(oPersonaje);
                     }
                 }
@@ -52,6 +53,9 @@ namespace DAL
 
             return listadoPersonajes;
         }
+
+
+
 
         /// <summary>
         /// Obtiene una lista de combates desde la base de datos.

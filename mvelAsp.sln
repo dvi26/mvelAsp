@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENT", "ENT\ENT.csproj", "{F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{0EE77AF7-D454-4147-9CEB-88C6BBF850EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvelMaui", "mvelMaui\mvelMaui.csproj", "{883AE395-CCE6-4413-ADFA-C38DB962E21C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,12 @@ Global
 		{0EE77AF7-D454-4147-9CEB-88C6BBF850EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EE77AF7-D454-4147-9CEB-88C6BBF850EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EE77AF7-D454-4147-9CEB-88C6BBF850EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{883AE395-CCE6-4413-ADFA-C38DB962E21C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{883AE395-CCE6-4413-ADFA-C38DB962E21C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{883AE395-CCE6-4413-ADFA-C38DB962E21C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{883AE395-CCE6-4413-ADFA-C38DB962E21C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{883AE395-CCE6-4413-ADFA-C38DB962E21C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{883AE395-CCE6-4413-ADFA-C38DB962E21C}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
